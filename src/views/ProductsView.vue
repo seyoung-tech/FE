@@ -45,32 +45,47 @@
               <tbody>
                 <tr>
                   <td>1인치</td>
-                  <td>25.4mm</td>
+                  <td>40mm</td>
                   <td>43mm × 43mm</td>
                 </tr>
                 <tr>
                   <td>2인치</td>
-                  <td>50.8mm</td>
+                  <td>50mm</td>
                   <td>43mm × 43mm</td>
                 </tr>
                 <tr>
                   <td>3인치</td>
-                  <td>76.2mm</td>
+                  <td>75mm</td>
                   <td>43mm × 43mm</td>
                 </tr>
                 <tr>
                   <td>4인치</td>
-                  <td>101.6mm</td>
+                  <td>100mm</td>
                   <td>43mm × 43mm</td>
                 </tr>
                 <tr>
                   <td>5인치</td>
-                  <td>127mm</td>
+                  <td>125mm</td>
                   <td>43mm × 43mm</td>
                 </tr>
                 <tr>
                   <td>6인치</td>
-                  <td>152.4mm</td>
+                  <td>150mm</td>
+                  <td>43mm × 43mm</td>
+                </tr>
+                <tr>
+                  <td>7인치</td>
+                  <td>175mm</td>
+                  <td>43mm × 43mm</td>
+                </tr>
+                <tr>
+                  <td>8인치</td>
+                  <td>200mm</td>
+                  <td>43mm × 43mm</td>
+                </tr>
+                <tr>
+                  <td>9인치</td>
+                  <td>230mm</td>
                   <td>43mm × 43mm</td>
                 </tr>
               </tbody>
