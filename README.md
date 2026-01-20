@@ -65,6 +65,17 @@ npm run dev
 
 ## 빌드 및 배포
 
+### 환경 변수 설정
+
+배포 전에 다음 환경 변수를 설정해야 합니다:
+
+**Vercel Dashboard → 프로젝트 → Settings → Environment Variables**
+
+```
+Key: VITE_API_BASE_URL
+Value: https://api.seyoung-tech.kr
+```
+
 ### 프로덕션 빌드
 
 ```bash
