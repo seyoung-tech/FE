@@ -302,8 +302,7 @@
 
 <script setup lang="ts">
 import { reactive, ref } from "vue";
-
-const API_BASE = import.meta.env.VITE_API_BASE_URL || "http://localhost:8080";
+import api from "../api/client";
 
 type Inquiry = {
   id: number;
@@ -350,34 +349,22 @@ const handleLogin = async () => {
   loginError.value = "";
   isLoggingIn.value = true;
   try {
-    const res = await fetch(`${API_BASE}/api/auth/login`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      credentials: "include",
-      body: JSON.stringify({
-        username: loginForm.username,
-        password: loginForm.password,
-      }),
+    await api.post("/api/auth/login", {
+      username: loginForm.username,
+      password: loginForm.password,
     });
-
-    if (!res.ok) {
-      if (res.status === 401) {
-        loginError.value = "아이디 또는 비밀번호가 올바르지 않습니다.";
-      } else {
-        loginError.value = "로그인 중 오류가 발생했습니다.";
-      }
-      return;
-    }
 
     // 로그인 성공
     isLoggedIn.value = true;
     page.value = 0; // 첫 페이지로 리셋
     await fetchInquiries();
-  } catch (e) {
+  } catch (e: any) {
     console.error(e);
-    loginError.value = "로그인 요청에 실패했습니다.";
+    if (e.response?.status === 401) {
+      loginError.value = "아이디 또는 비밀번호가 올바르지 않습니다.";
+    } else {
+      loginError.value = "로그인 요청에 실패했습니다.";
+    }
   } finally {
     isLoggingIn.value = false;
   }
@@ -387,36 +374,27 @@ const fetchInquiries = async () => {
   loadError.value = "";
   isLoading.value = true;
   try {
-    const params = new URLSearchParams({
-      page: page.value.toString(),
-      size: size.value.toString(),
+    const res = await api.get<InquiryPage>("/api/inquiry", {
+      params: {
+        page: page.value,
+        size: size.value,
+      },
     });
 
-    const res = await fetch(`${API_BASE}/api/inquiry?${params.toString()}`, {
-      method: "GET",
-      credentials: "include",
-    });
-
-    if (res.status === 401) {
-      // 세션이 없거나 만료된 경우
-      isLoggedIn.value = false;
-      loadError.value = "";
-      return;
-    }
-
-    if (!res.ok) {
-      loadError.value = "견적 문의 목록을 불러오는 중 오류가 발생했습니다.";
-      return;
-    }
-
-    const data: InquiryPage = await res.json();
+    const data = res.data;
     inquiries.value = data.content ?? [];
     totalPages.value = data.totalPages ?? 0;
     totalElements.value = data.totalElements ?? 0;
     page.value = data.number ?? 0;
-  } catch (e) {
+  } catch (e: any) {
     console.error(e);
-    loadError.value = "견적 문의 목록을 불러오는 데 실패했습니다.";
+    if (e.response?.status === 401) {
+      // 세션이 없거나 만료된 경우
+      isLoggedIn.value = false;
+      loadError.value = "";
+    } else {
+      loadError.value = "견적 문의 목록을 불러오는 데 실패했습니다.";
+    }
   } finally {
     isLoading.value = false;
   }
@@ -429,24 +407,8 @@ const openDetailModal = async (id: number) => {
   detailInquiry.value = null;
 
   try {
-    const res = await fetch(`${API_BASE}/api/inquiry/${id}`, {
-      method: "GET",
-      credentials: "include",
-    });
-
-    if (res.status === 401) {
-      isLoggedIn.value = false;
-      showModal.value = false;
-      loadError.value = "세션이 만료되었습니다. 다시 로그인해주세요.";
-      return;
-    }
-
-    if (!res.ok) {
-      detailError.value = "상세 정보를 불러오는 중 오류가 발생했습니다.";
-      return;
-    }
-
-    const data: Inquiry = await res.json();
+    const res = await api.get<Inquiry>(`/api/inquiry/${id}`);
+    const data = res.data;
     detailInquiry.value = data;
 
     // 목록의 해당 항목도 업데이트
@@ -454,9 +416,15 @@ const openDetailModal = async (id: number) => {
     if (index !== -1) {
       inquiries.value[index] = data;
     }
-  } catch (e) {
+  } catch (e: any) {
     console.error(e);
-    detailError.value = "상세 정보를 불러오는 데 실패했습니다.";
+    if (e.response?.status === 401) {
+      isLoggedIn.value = false;
+      showModal.value = false;
+      loadError.value = "세션이 만료되었습니다. 다시 로그인해주세요.";
+    } else {
+      detailError.value = "상세 정보를 불러오는 데 실패했습니다.";
+    }
   } finally {
     isLoadingDetail.value = false;
   }
@@ -472,24 +440,7 @@ const markAsDone = async (item: Inquiry) => {
   if (item.status) return;
   updatingId.value = item.id;
   try {
-    const res = await fetch(`${API_BASE}/api/inquiry/${item.id}`, {
-      method: "PATCH",
-      credentials: "include",
-    });
-
-    if (res.status === 401) {
-      isLoggedIn.value = false;
-      loadError.value = "세션이 만료되었습니다. 다시 로그인해주세요.";
-      if (showModal.value) {
-        closeModal();
-      }
-      return;
-    }
-
-    if (!res.ok) {
-      alert("상태 업데이트 중 오류가 발생했습니다.");
-      return;
-    }
+    await api.patch(`/api/inquiry/${item.id}`);
 
     item.status = true;
 
@@ -501,9 +452,17 @@ const markAsDone = async (item: Inquiry) => {
     ) {
       detailInquiry.value.status = true;
     }
-  } catch (e) {
+  } catch (e: any) {
     console.error(e);
-    alert("상태 업데이트 요청에 실패했습니다.");
+    if (e.response?.status === 401) {
+      isLoggedIn.value = false;
+      loadError.value = "세션이 만료되었습니다. 다시 로그인해주세요.";
+      if (showModal.value) {
+        closeModal();
+      }
+    } else {
+      alert("상태 업데이트 요청에 실패했습니다.");
+    }
   } finally {
     updatingId.value = null;
   }

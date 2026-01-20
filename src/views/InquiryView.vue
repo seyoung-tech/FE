@@ -13,13 +13,21 @@
           <div class="method-card phone">
             <h3>전화 문의</h3>
             <p>빠른 상담이 필요하시면 전화로 문의해주세요.</p>
-            <a :href="`tel:${contactInfo.mobile}`" class="btn btn-primary btn-call">{{ contactInfo.mobile }}</a>
+            <a
+              :href="`tel:${contactInfo.mobile}`"
+              class="btn btn-primary btn-call"
+              >{{ contactInfo.mobile }}</a
+            >
             <p class="method-note">{{ contactInfo.businessHours }}</p>
           </div>
           <div class="method-card email">
             <h3>이메일 문의</h3>
             <p>상세한 문의사항은 이메일로 보내주세요.</p>
-            <a :href="`mailto:${contactInfo.email}`" class="btn btn-secondary">{{ contactInfo.email }}</a>
+            <a
+              :href="`mailto:${contactInfo.email}`"
+              class="btn btn-secondary"
+              >{{ contactInfo.email }}</a
+            >
             <p class="method-note">24시간 접수 가능</p>
           </div>
         </div>
@@ -89,11 +97,7 @@
 
           <div class="form-group checkbox-group">
             <label class="checkbox-label">
-              <input
-                type="checkbox"
-                v-model="form.agreePrivacy"
-                required
-              />
+              <input type="checkbox" v-model="form.agreePrivacy" required />
               <span>개인정보 수집 및 이용에 동의합니다. *</span>
             </label>
             <p class="privacy-note">
@@ -107,7 +111,6 @@
           </button>
         </form>
       </section>
-
     </div>
   </div>
 </template>
@@ -115,8 +118,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { contactInfo } from "../config/contact";
-
-const API_BASE = import.meta.env.VITE_API_BASE_URL || "http://localhost:8080";
+import api from "../api/client";
 
 const form = ref({
   company: "",
@@ -147,22 +149,12 @@ const handleSubmit = async () => {
       content: form.value.message,
     };
 
-    const res = await fetch(`${API_BASE}/api/inquiry`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(payload),
-    });
-
-    if (!res.ok) {
-      alert("문의 등록 중 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.");
-      isSubmitting.value = false;
-      return;
-    }
+    await api.post("/api/inquiry", payload);
 
     // 2) 이메일 클라이언트도 함께 열기 (기존 동작 유지)
-    const subject = encodeURIComponent(`보온핀 견적 문의 - ${form.value.company}`);
+    const subject = encodeURIComponent(
+      `보온핀 견적 문의 - ${form.value.company}`
+    );
     const body = encodeURIComponent(`
 회사명: ${form.value.company}
 담당자명: ${form.value.manager}
@@ -176,7 +168,9 @@ ${form.value.message}
     const mailtoLink = `mailto:${contactInfo.email}?subject=${subject}&body=${body}`;
     window.location.href = mailtoLink;
 
-    alert("문의가 등록되었습니다. 이메일 클라이언트가 열리면 메일도 함께 보내주세요.");
+    alert(
+      "문의가 등록되었습니다. 이메일 클라이언트가 열리면 메일도 함께 보내주세요."
+    );
 
     // 폼 초기화
     form.value = {
@@ -187,7 +181,7 @@ ${form.value.message}
       message: "",
       agreePrivacy: false,
     };
-  } catch (e) {
+  } catch (e: any) {
     console.error(e);
     alert("문의 요청 중 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.");
   } finally {
@@ -316,7 +310,7 @@ ${form.value.message}
 .form-group select:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: #0EB677;
+  border-color: #0eb677;
   box-shadow: 0 0 0 3px rgba(14, 182, 119, 0.1);
 }
 
@@ -370,12 +364,12 @@ ${form.value.message}
 }
 
 .btn-primary {
-  background: #0EB677;
+  background: #0eb677;
   color: #fff;
 }
 
 .btn-primary:hover {
-  background: #0CA563;
+  background: #0ca563;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(14, 182, 119, 0.3);
 }
