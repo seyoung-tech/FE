@@ -147,6 +147,28 @@
         </div>
       </section>
 
+      <!-- Guide Section -->
+      <section class="guide">
+        <h2>보온핀 선택 가이드</h2>
+        <div class="guide-content">
+          <p>
+            보온핀은 단열재 두께에 맞춰 길이를 선택하는 것이 가장 중요합니다.
+            단열재 두께보다 여유 있게 길이를 선택하면 시공 후에도 단열재가
+            처지거나 흔들리지 않고 안정적으로 고정됩니다.
+          </p>
+          <p>
+            일반적으로 외단열·내단열 시공에서는 단열재 두께에 따라 1인치부터
+            9인치까지 보온핀을 사용하며, 와셔(와샤)를 함께 사용하면 단열재 면을
+            넓게 눌러주어 고정력이 더욱 높아집니다.
+          </p>
+          <p>
+            현장 상황에 따라 어떤 규격의 보온핀과 와셔(와샤)가 적합한지
+            고민되신다면, (주)세영테크로 연락 주시면 시공 방식과 단열재 두께를
+            고려해 알맞은 건축자재를 안내해 드리겠습니다.
+          </p>
+        </div>
+      </section>
+
       <!-- CTA Section -->
       <section class="cta-section">
         <div class="cta-box">
@@ -203,6 +225,29 @@ import { contactInfo } from "../config/contact";
 .features,
 .application {
   margin-bottom: 5rem;
+}
+
+.guide {
+  margin-bottom: 5rem;
+}
+
+.guide h2 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: #2c3e50;
+  text-align: center;
+}
+
+.guide-content {
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.8;
+  font-size: 1.05rem;
+  color: #34495e;
+}
+
+.guide-content p {
+  margin-bottom: 1.5rem;
 }
 
 .product-info h2,
@@ -433,6 +478,18 @@ import { contactInfo } from "../config/contact";
   .features,
   .application {
     margin-bottom: 3rem;
+  }
+
+  .guide {
+    margin-bottom: 3rem;
+  }
+
+  .guide h2 {
+    font-size: 1.8rem;
+  }
+
+  .guide-content {
+    font-size: 0.98rem;
   }
 
   .product-spec-container {
