@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>/</loc>
+    <loc>https://www.seyoung-tech.kr/</loc>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>/about</loc>
+    <loc>https://www.seyoung-tech.kr/about</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>/products</loc>
+    <loc>https://www.seyoung-tech.kr/products</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>/location</loc>
+    <loc>https://www.seyoung-tech.kr/location</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>/inquiry</loc>
+    <loc>https://www.seyoung-tech.kr/inquiry</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
