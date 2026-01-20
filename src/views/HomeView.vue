@@ -6,6 +6,9 @@
         <div
           class="slider-wrapper"
           :style="{ transform: `translateX(-${currentSlide * 100}%)` }"
+          @touchstart="handleTouchStart"
+          @touchmove="handleTouchMove"
+          @touchend="handleTouchEnd"
         >
           <div
             v-for="(slide, index) in slides"
@@ -39,7 +42,7 @@
             </div>
           </div>
         </div>
-        <div class="slider-controls">
+        <div class="slider-controls desktop-only">
           <button
             class="slider-btn prev"
             @click="prevSlide"
@@ -154,8 +157,40 @@ import { contactInfo } from "../config/contact";
 const currentSlide = ref(0);
 const isMobile = ref(false);
 
+// 터치 스와이프 관련
+const touchStartX = ref(0);
+const touchEndX = ref(0);
+const minSwipeDistance = 50; // 최소 스와이프 거리 (px)
+
 const checkMobile = () => {
   isMobile.value = window.innerWidth <= 768;
+};
+
+const handleTouchStart = (e: TouchEvent) => {
+  touchStartX.value = e.touches[0].clientX;
+};
+
+const handleTouchMove = (e: TouchEvent) => {
+  touchEndX.value = e.touches[0].clientX;
+};
+
+const handleTouchEnd = () => {
+  if (!touchStartX.value || !touchEndX.value) return;
+
+  const distance = touchStartX.value - touchEndX.value;
+
+  // 오른쪽으로 스와이프 (이전 슬라이드)
+  if (distance > minSwipeDistance) {
+    prevSlide();
+  }
+  // 왼쪽으로 스와이프 (다음 슬라이드)
+  else if (distance < -minSwipeDistance) {
+    nextSlide();
+  }
+
+  // 리셋
+  touchStartX.value = 0;
+  touchEndX.value = 0;
 };
 
 const slides = ref([
@@ -254,6 +289,7 @@ onUnmounted(() => {
   width: 100%;
   height: 100%;
   transition: transform 0.5s ease-in-out;
+  touch-action: pan-y; /* 세로 스크롤은 허용, 가로 스와이프는 제어 */
 }
 
 .slide {
@@ -313,6 +349,10 @@ onUnmounted(() => {
   font-size: 1.1rem;
   line-height: 1.8;
   opacity: 0.95;
+}
+
+.desktop-only {
+  display: block;
 }
 
 .slider-controls {
@@ -559,6 +599,10 @@ onUnmounted(() => {
 }
 
 @media (max-width: 768px) {
+  .desktop-only {
+    display: none !important;
+  }
+
   .banner-slider {
     height: 350px;
   }
