@@ -3,33 +3,42 @@
     <div class="container">
       <!-- Page Header -->
       <section class="page-header">
-        <h1>제품 소개</h1>
-        <p>다양한 규격의 보온핀을 제조하고 있습니다</p>
+        <h1>보온핀 · 건축자재 제품 소개</h1>
+        <p>
+          (주)세영테크는 보온핀과 와셔(와샤)를 포함한 단열재 고정용 건축자재를
+          전문적으로 제조·납품하는 보온핀 업체입니다.
+        </p>
       </section>
 
       <!-- Product Info Section -->
       <section class="product-info">
-        <h2>보온핀이란?</h2>
+        <h2>보온핀과 와셔(와샤)란?</h2>
         <div class="info-content">
           <p>
-            보온핀은 단열재를 벽체, 천장 등에 고정하는 핀으로, 외단열 및 내단열 시공에서
-            단열재가 떨어지지 않게 고정하는 필수 자재입니다.
+            보온핀은 단열재를 벽체, 천장 등에 고정하는 핀으로, 외단열 및 내단열
+            시공에서 단열재가 떨어지지 않게 고정하는 필수 자재입니다.
           </p>
           <p>
-            EPS(스티로폼), XPS, 그라스울, 미네랄울 등 다양한 단열재 종류와 함께 사용되며,
-            건축물의 단열 성능을 유지하는 데 중요한 역할을 합니다.
+            EPS(스티로폼), XPS, 그라스울, 미네랄울 등 다양한 단열재 종류와 함께
+            사용되며, 건축자재 중에서도 건축물의 단열 성능과 내구성을 유지하는
+            데 매우 중요한 역할을 합니다.
+          </p>
+          <p>
+            보온핀과 함께 사용하는 와셔(와샤)는 단열재의 면을 넓게 눌러주어
+            고정력을 높여 주는 부속 자재로, (주)세영테크는 보온핀과 와셔(와샤)를
+            함께 공급하는 건축자재 공장입니다.
           </p>
         </div>
       </section>
 
       <!-- Product Image and Specifications -->
       <section class="specifications">
-        <h2>제품 규격</h2>
+        <h2>보온핀 제품 규격 (1인치 ~ 9인치)</h2>
         <div class="product-spec-container">
           <div class="product-image-wrapper">
             <img
               src="/images/ChatGPT Image 2026년 1월 19일 오후 04_26_21.png"
-              alt="보온핀 제품"
+              alt="단열재 고정용 보온핀 및 와셔(와샤) 건축자재"
               class="product-image"
             />
           </div>
@@ -100,7 +109,9 @@
         <div class="features-grid">
           <div class="feature-item">
             <h3>견고한 고정력</h3>
-            <p>단열재를 안정적으로 고정하여 시공 후에도 변형이나 이탈이 없습니다.</p>
+            <p>
+              단열재를 안정적으로 고정하여 시공 후에도 변형이나 이탈이 없습니다.
+            </p>
           </div>
           <div class="feature-item">
             <h3>방청 처리</h3>
@@ -142,8 +153,14 @@
           <h2>견적 문의</h2>
           <p>다양한 규격의 보온핀에 대한 견적 문의를 받고 있습니다.</p>
           <div class="cta-buttons">
-            <a :href="`tel:${contactInfo.mobile}`" class="btn btn-primary btn-call">{{ contactInfo.mobile }}</a>
-            <RouterLink to="/inquiry" class="btn btn-secondary">온라인 문의</RouterLink>
+            <a
+              :href="`tel:${contactInfo.mobile}`"
+              class="btn btn-primary btn-call"
+              >{{ contactInfo.mobile }}</a
+            >
+            <RouterLink to="/inquiry" class="btn btn-secondary"
+              >온라인 문의</RouterLink
+            >
           </div>
         </div>
       </section>
@@ -249,7 +266,7 @@ import { contactInfo } from "../config/contact";
 }
 
 .spec-table thead {
-  background: #0EB677;
+  background: #0eb677;
   color: #fff;
 }
 
@@ -317,7 +334,7 @@ import { contactInfo } from "../config/contact";
   background: #f8f9fa;
   padding: 2rem;
   border-radius: 8px;
-  border-left: 4px solid #0EB677;
+  border-left: 4px solid #0eb677;
 }
 
 .app-item h3 {
@@ -372,12 +389,12 @@ import { contactInfo } from "../config/contact";
 }
 
 .btn-primary {
-  background: #0EB677;
+  background: #0eb677;
   color: #fff;
 }
 
 .btn-primary:hover {
-  background: #0CA563;
+  background: #0ca563;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(14, 182, 119, 0.3);
 }

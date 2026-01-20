@@ -17,9 +17,9 @@ const router = createRouter({
       name: "home",
       component: HomeView,
       meta: {
-        title: "(주)세영테크 | 보온핀 전문 제조",
+        title: "(주)세영테크 | 보온핀 · 건축자재 전문 제조 공장",
         description:
-          "품질과 신용으로 승부하는 (주)세영테크. 외단열/내단열 시공용 보온핀 제조 및 견적 문의를 받습니다.",
+          "품질과 신용으로 승부하는 (주)세영테크. 외단열/내단열 시공용 보온핀, 와셔(와샤) 등 건축자재를 전문 생산·납품하는 보온핀 공장입니다.",
       },
     },
     {
@@ -27,8 +27,9 @@ const router = createRouter({
       name: "about",
       component: () => import("../views/AboutView.vue"),
       meta: {
-        title: "회사 소개 | (주)세영테크",
-        description: "(주)세영테크의 회사 소개, 연혁, 인사말을 확인하세요.",
+        title: "회사 소개 | 보온핀 · 건축자재 업체 (주)세영테크",
+        description:
+          "보온핀 전문 제조 공장 및 건축자재 업체 (주)세영테크의 회사 소개, 연혁, 인사말을 확인하세요.",
       },
     },
     {
@@ -36,9 +37,9 @@ const router = createRouter({
       name: "products",
       component: () => import("../views/ProductsView.vue"),
       meta: {
-        title: "제품 소개 | 보온핀 규격 및 종류",
+        title: "제품 소개 | 보온핀 규격 및 와셔(와샤) 건축자재",
         description:
-          "다양한 규격의 보온핀 제품을 소개합니다. 35T부터 150T까지 다양한 두께에 맞는 보온핀을 제조합니다.",
+          "1인치부터 9인치까지 다양한 규격의 보온핀과 와셔(와샤) 건축자재 제품을 소개합니다. 단열재 고정핀, 보온핀 제작·납품·공급 전문.",
       },
     },
     {

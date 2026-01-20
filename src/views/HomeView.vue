@@ -71,21 +71,33 @@
     <!-- Products Preview Section -->
     <section class="products-preview">
       <div class="container">
-        <h2 class="section-title">주요 제품</h2>
+        <h2 class="section-title">주요 보온핀 · 건축자재 제품</h2>
         <div class="products-grid">
           <div class="product-card">
             <div class="product-image">
-              <img src="/images/보온핀.png" alt="일반 보온핀 제품" />
+              <img
+                src="/images/보온핀.png"
+                alt="건축자재 보온핀 제품 - 일반 보온핀"
+              />
             </div>
             <h3>일반 보온핀</h3>
-            <p>35T ~ 150T 다양한 두께에 맞는 보온핀</p>
+            <p>
+              외단열·내단열 시공용 건축자재 보온핀으로, 35T ~ 150T 다양한 두께의
+              단열재를 안정적으로 고정합니다.
+            </p>
           </div>
           <div class="product-card">
             <div class="product-image">
-              <img src="/images/보온핀-일반.jpg" alt="와셔 포함 보온핀 제품" />
+              <img
+                src="/images/보온핀-일반.jpg"
+                alt="와셔(와샤) 포함 보온핀 건축자재"
+              />
             </div>
             <h3>와셔 포함 보온핀</h3>
-            <p>와셔가 포함된 고정력이 뛰어난 보온핀</p>
+            <p>
+              와셔(와샤)가 포함된 보온핀으로 단열재와 마감재를 함께 고정하는
+              건축자재 보온핀 제품입니다.
+            </p>
           </div>
         </div>
         <div class="text-center" style="margin-top: 2rem">
@@ -99,26 +111,38 @@
     <!-- Features Section -->
     <section class="features">
       <div class="container">
-        <h2 class="section-title">왜 우리를 선택해야 할까요?</h2>
+        <h2 class="section-title">
+          왜 보온핀 · 건축자재는 (주)세영테크를 선택해야 할까요?
+        </h2>
         <div class="features-grid">
           <div class="feature-card">
             <h3>전문 제조 공장</h3>
             <p>
-              (주)세영테크는 보온핀 전문 제조 공장으로 오랜 경험과 노하우를
-              보유하고 있습니다.
+              (주)세영테크는 보온핀과 관련 건축자재를 전문으로 생산하는 보온핀
+              공장이자 건축자재 공장으로, 오랜 경험과 노하우를 보유하고
+              있습니다.
             </p>
           </div>
           <div class="feature-card">
             <h3>높은 품질</h3>
-            <p>엄격한 품질 관리로 고객에게 최고의 제품을 제공합니다.</p>
+            <p>
+              단열재 고정핀, 보온핀, 와셔(와샤) 등 모든 건축자재를 엄격한 품질
+              기준에 맞춰 생산합니다.
+            </p>
           </div>
           <div class="feature-card">
             <h3>빠른 납기</h3>
-            <p>신속한 제조 및 납기 준수로 고객의 일정에 맞춥니다.</p>
+            <p>
+              대량 보온핀 제작 및 건축자재 공급에도 신속한 제조와 납기로 공사
+              일정을 맞출 수 있습니다.
+            </p>
           </div>
           <div class="feature-card">
             <h3>신뢰할 수 있는 서비스</h3>
-            <p>고객과의 신뢰를 최우선으로 생각하며 정직한 거래를 약속합니다.</p>
+            <p>
+              보온핀 업체로서의 책임감을 바탕으로, 정직한 단가와 안정적인
+              납품으로 신뢰를 쌓아가고 있습니다.
+            </p>
           </div>
         </div>
       </div>
@@ -128,8 +152,11 @@
     <section class="cta">
       <div class="container">
         <div class="cta-content">
-          <h2>지금 바로 견적을 문의하세요</h2>
-          <p>전문 상담을 통해 최적의 제품을 추천해드립니다.</p>
+          <h2>보온핀 · 건축자재 견적, 지금 바로 문의하세요</h2>
+          <p>
+            보온핀, 와셔(와샤) 등 단열재 고정용 건축자재 견적을 빠르게 확인하실
+            수 있습니다.
+          </p>
           <div class="cta-buttons">
             <a
               :href="`tel:${contactInfo.mobile}`"
