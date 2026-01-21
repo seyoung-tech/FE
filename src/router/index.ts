@@ -71,6 +71,15 @@ const router = createRouter({
           "(주)세영테크 보온핀 견적 문의를 관리자 계정으로 확인하고 처리 상태를 관리합니다.",
       },
     },
+    {
+      path: "/signup",
+      name: "signup",
+      component: () => import("../views/SignupView.vue"),
+      meta: {
+        title: "회원가입 | (주)세영테크",
+        description: "회원가입 페이지입니다.",
+      },
+    },
   ],
 });
 
