@@ -151,26 +151,7 @@ const handleSubmit = async () => {
 
     await api.post("/api/inquiry", payload);
 
-    // 2) 이메일 클라이언트도 함께 열기 (기존 동작 유지)
-    const subject = encodeURIComponent(
-      `보온핀 견적 문의 - ${form.value.company}`
-    );
-    const body = encodeURIComponent(`
-회사명: ${form.value.company}
-담당자명: ${form.value.manager}
-이메일: ${form.value.email}
-전화번호: ${form.value.phone}
-
-문의 내용:
-${form.value.message}
-    `);
-
-    const mailtoLink = `mailto:${contactInfo.email}?subject=${subject}&body=${body}`;
-    window.location.href = mailtoLink;
-
-    alert(
-      "문의가 등록되었습니다. 이메일 클라이언트가 열리면 메일도 함께 보내주세요."
-    );
+    alert("문의가 등록되었습니다. 빠른 시일 내에 답변드리겠습니다.");
 
     // 폼 초기화
     form.value = {
