@@ -88,6 +88,43 @@
 
 <script setup lang="ts">
 import { RouterLink } from "vue-router";
+import { onMounted, onUnmounted } from "vue";
+
+// 구조화된 데이터 (JSON-LD) 추가
+onMounted(() => {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "회사 소개 | 보온핀 · 건축자재 업체 (주)세영테크",
+    "description": "보온핀 전문 제조 공장 및 건축자재 업체 (주)세영테크의 회사 소개, 연혁, 인사말을 확인하세요.",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "(주)세영테크",
+      "description": "보온핀 전문 제조 공장 및 건축자재 업체",
+      "url": "https://www.seyoung-tech.kr",
+      "telephone": "031-316-0250",
+      "email": "sytt1234@naver.com",
+      "foundingDate": "2015",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "KR",
+      },
+    },
+  };
+
+  const script = document.createElement("script");
+  script.type = "application/ld+json";
+  script.text = JSON.stringify(jsonLd);
+  script.id = "about-jsonld";
+  document.head.appendChild(script);
+});
+
+onUnmounted(() => {
+  const script = document.getElementById("about-jsonld");
+  if (script) {
+    script.remove();
+  }
+});
 </script>
 
 <style scoped>

@@ -192,7 +192,48 @@
 
 <script setup lang="ts">
 import { RouterLink } from "vue-router";
+import { onMounted, onUnmounted } from "vue";
 import { contactInfo } from "../config/contact";
+
+// 구조화된 데이터 (JSON-LD) 추가
+onMounted(() => {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "보온핀 · 건축자재",
+    "description": "1인치부터 9인치까지 다양한 규격의 보온핀과 와셔(와샤) 건축자재 제품. 단열재 고정용 보온핀 제작·납품·공급 전문.",
+    "brand": {
+      "@type": "Organization",
+      "name": "(주)세영테크",
+    },
+    "manufacturer": {
+      "@type": "Organization",
+      "name": "(주)세영테크",
+      "url": "https://www.seyoung-tech.kr",
+      "telephone": "031-316-0250",
+      "email": "sytt1234@naver.com",
+    },
+    "category": "건축자재",
+    "offers": {
+      "@type": "Offer",
+      "availability": "https://schema.org/InStock",
+      "priceCurrency": "KRW",
+    },
+  };
+
+  const script = document.createElement("script");
+  script.type = "application/ld+json";
+  script.text = JSON.stringify(jsonLd);
+  script.id = "products-jsonld";
+  document.head.appendChild(script);
+});
+
+onUnmounted(() => {
+  const script = document.getElementById("products-jsonld");
+  if (script) {
+    script.remove();
+  }
+});
 </script>
 
 <style scoped>
