@@ -30,9 +30,10 @@ body {
     Roboto, "Helvetica Neue", Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
+  color: #222;
   line-height: 1.6;
-  background: #f8f9fa;
+  background: #fff;
+  font-size: 15px;
 }
 
 #app {
@@ -46,9 +47,9 @@ main {
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 1.25rem;
 }
 
 h1,
@@ -57,19 +58,18 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Pretendard", sans-serif;
-  font-weight: 700;
-  line-height: 1.2;
-  margin-bottom: 1rem;
+  font-weight: 600;
+  line-height: 1.35;
+  margin-bottom: 0.5em;
 }
 
 a {
-  color: #0EB677;
-  transition: color 0.3s;
+  color: #0eb677;
+  text-decoration: none;
 }
 
 a:hover {
-  color: #0CA563;
+  color: #099a5c;
 }
 
 @media (max-width: 768px) {
@@ -78,4 +78,3 @@ a:hover {
   }
 }
 </style>
-

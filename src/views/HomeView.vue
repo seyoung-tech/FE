@@ -82,8 +82,8 @@
             </div>
             <h3>일반 보온핀</h3>
             <p>
-              외단열·내단열 시공용 건축자재 보온핀으로, 1인치 ~ 9인치 다양한 길이이의
-              단열재를 안정적으로 고정합니다.
+              외단열·내단열 시공용 건축자재 보온핀으로, 1인치 ~ 9인치 다양한
+              길이이의 단열재를 안정적으로 고정합니다.
             </p>
           </div>
           <div class="product-card">
@@ -262,11 +262,11 @@ onUnmounted(() => {
   width: 100%;
 }
 
-/* Banner Slider Section */
+/* Banner Slider */
 .banner-slider {
   position: relative;
   width: 100%;
-  height: 500px;
+  height: 480px;
   overflow: hidden;
 }
 
@@ -280,7 +280,7 @@ onUnmounted(() => {
   display: flex;
   width: 100%;
   height: 100%;
-  transition: transform 0.5s ease-in-out;
+  transition: transform 0.4s ease;
 }
 
 .slide {
@@ -300,16 +300,13 @@ onUnmounted(() => {
 .slide-image.no-overlay {
   background-size: cover;
   background-position: center;
-  background-color: #fff;
+  background-color: #f0f2f4;
 }
 
 .slide-overlay {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -318,28 +315,26 @@ onUnmounted(() => {
 .slide-content {
   text-align: center;
   color: #fff;
-  max-width: 800px;
+  max-width: 720px;
   padding: 2rem;
 }
 
 .slide-title {
-  font-size: 2rem;
+  font-size: 1.25rem;
   font-weight: 600;
-  margin-bottom: 1rem;
-  color: #fff;
+  margin-bottom: 0.4rem;
 }
 
 .slide-subtitle {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 1.5rem;
-  color: #fff;
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
 }
 
 .slide-description {
-  font-size: 1.1rem;
-  line-height: 1.8;
-  opacity: 0.95;
+  font-size: 15px;
+  line-height: 1.6;
+  opacity: 0.9;
 }
 
 .desktop-only {
@@ -358,29 +353,27 @@ onUnmounted(() => {
 }
 
 .slider-btn {
-  width: 50px;
-  height: 50px;
-  background: rgba(255, 255, 255, 0.8);
+  width: 44px;
+  height: 44px;
+  background: rgba(255, 255, 255, 0.9);
   border: none;
   border-radius: 50%;
-  font-size: 2rem;
-  color: #2c3e50;
+  font-size: 1.4rem;
+  color: #333;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s;
   pointer-events: all;
 }
 
 .slider-btn:hover {
-  background: rgba(255, 255, 255, 1);
-  transform: scale(1.1);
+  background: #fff;
 }
 
 .slider-indicators {
   position: absolute;
-  bottom: 2rem;
+  bottom: 1.5rem;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -388,28 +381,27 @@ onUnmounted(() => {
 }
 
 .indicator {
-  width: 12px;
-  height: 12px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
-  border: 2px solid #fff;
+  border: 1px solid rgba(255, 255, 255, 0.8);
   background: transparent;
   cursor: pointer;
-  transition: all 0.3s;
 }
 
 .indicator.active {
   background: #fff;
+  border-color: #fff;
 }
 
 /* Buttons */
 .btn {
   display: inline-block;
-  padding: 0.875rem 2rem;
+  padding: 0.7rem 1.5rem;
   border-radius: 4px;
   text-decoration: none;
-  font-weight: 600;
-  font-size: 1rem;
-  transition: all 0.3s;
+  font-weight: 500;
+  font-size: 14px;
   border: none;
   cursor: pointer;
 }
@@ -420,26 +412,25 @@ onUnmounted(() => {
 }
 
 .btn-primary:hover {
-  background: #0ca563;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(14, 182, 119, 0.3);
+  background: #099a5c;
 }
 
 .btn-secondary {
   background: transparent;
   color: #fff;
-  border: 2px solid #fff;
+  border: 1px solid rgba(255, 255, 255, 0.7);
 }
 
 .btn-secondary:hover {
   background: #fff;
-  color: #2c3e50;
+  color: #222;
+  border-color: #fff;
 }
 
 .btn-outline {
   background: transparent;
   color: #0eb677;
-  border: 2px solid #0eb677;
+  border: 1px solid #0eb677;
 }
 
 .btn-outline:hover {
@@ -447,85 +438,46 @@ onUnmounted(() => {
   color: #fff;
 }
 
-/* Features Section */
-.features {
-  padding: 5rem 0;
-  background: #fff;
-}
-
+/* Section titles */
 .section-title {
   text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 3rem;
-  color: #2c3e50;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  color: #222;
 }
 
-.features-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-}
-
-.feature-card {
-  text-align: center;
-  padding: 2rem;
-  border-radius: 8px;
-  background: #f8f9fa;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.feature-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-}
-
-.feature-card h3 {
-  font-size: 1.3rem;
-  margin-bottom: 1rem;
-  color: #2c3e50;
-}
-
-.feature-card p {
-  color: #7f8c8d;
-  line-height: 1.6;
-}
-
-/* Products Preview Section */
+/* Products Preview */
 .products-preview {
-  padding: 5rem 0;
-  background: #f8f9fa;
+  padding: 3.5rem 0;
+  background: #f7f7f7;
 }
 
 .products-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  max-width: 720px;
+  margin: 0 auto;
 }
 
 .product-card {
   background: #fff;
-  padding: 2.5rem;
-  border-radius: 8px;
+  padding: 1.5rem;
+  border-radius: 6px;
   text-align: center;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.product-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  border: 1px solid #e8e8e8;
 }
 
 .product-image {
   width: 100%;
-  height: 280px;
-  margin-bottom: 1.5rem;
-  background: #e8e8e8;
+  height: 240px;
+  margin-bottom: 1rem;
+  background: #f0f0f0;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  border: 1px solid #ddd;
   border-radius: 4px;
 }
 
@@ -543,43 +495,79 @@ onUnmounted(() => {
 }
 
 .product-card h3 {
-  font-size: 1.4rem;
-  margin-bottom: 1rem;
-  color: #2c3e50;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: #222;
+  font-weight: 600;
 }
 
 .product-card p {
-  color: #7f8c8d;
-  line-height: 1.6;
+  color: #555;
+  line-height: 1.55;
+  font-size: 14px;
 }
 
 .text-center {
   text-align: center;
 }
 
-/* CTA Section */
+/* Features */
+.features {
+  padding: 3.5rem 0;
+  background: #fff;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+
+.feature-card {
+  text-align: center;
+  padding: 1.5rem 1rem;
+  border-radius: 6px;
+  background: #fafafa;
+  border: 1px solid #eee;
+}
+
+.feature-card h3 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: #222;
+  font-weight: 600;
+}
+
+.feature-card p {
+  color: #555;
+  line-height: 1.55;
+  font-size: 14px;
+}
+
+/* CTA */
 .cta {
-  padding: 5rem 0;
-  background: #34495e;
+  padding: 3rem 0;
+  background: #0eb677;
   color: #fff;
 }
 
 .cta-content {
   text-align: center;
-  max-width: 600px;
+  max-width: 520px;
   margin: 0 auto;
 }
 
 .cta-content h2 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  color: #fff;
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
 }
 
 .cta-content p {
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
+  font-size: 14px;
+  margin-bottom: 1.5rem;
   opacity: 0.95;
+  line-height: 1.55;
 }
 
 .cta-buttons {
@@ -595,30 +583,19 @@ onUnmounted(() => {
   }
 
   .banner-slider {
-    height: 350px;
+    height: 380px;
   }
 
   .slide-title {
-    font-size: 1.2rem;
+    font-size: 1.125rem;
   }
 
   .slide-subtitle {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
   }
 
   .slide-description {
-    font-size: 0.9rem;
-    padding: 0 1rem;
-  }
-
-  .slide-content {
-    padding: 1.5rem;
-  }
-
-  .slider-btn {
-    width: 40px;
-    height: 40px;
-    font-size: 1.5rem;
+    font-size: 0.875rem;
   }
 
   .slider-indicators {
@@ -626,58 +603,45 @@ onUnmounted(() => {
   }
 
   .section-title {
-    font-size: 1.8rem;
-    margin-bottom: 2rem;
+    font-size: 1.35rem;
+    margin-bottom: 1.5rem;
   }
 
+  .products-preview,
   .features {
-    padding: 3rem 0;
-  }
-
-  .features-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-
-  .feature-card {
-    padding: 1.5rem;
-  }
-
-  .products-preview {
     padding: 3rem 0;
   }
 
   .products-grid {
     grid-template-columns: 1fr;
+    max-width: 100%;
     gap: 1.5rem;
   }
 
-  .product-card {
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .product-card,
+  .feature-card {
     padding: 1.5rem;
   }
 
   .product-image {
-    height: 240px;
-  }
-
-  .product-image img {
-    padding: 0.75rem;
+    height: 220px;
   }
 
   .cta {
     padding: 3rem 0;
   }
 
-  .cta-content {
-    padding: 0 1rem;
-  }
-
   .cta-content h2 {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
   }
 
   .cta-content p {
-    font-size: 1rem;
+    font-size: 0.9375rem;
   }
 
   .cta-buttons {
@@ -687,13 +651,13 @@ onUnmounted(() => {
 
   .btn {
     width: 100%;
-    padding: 1rem;
-    font-size: 1rem;
+    max-width: 280px;
+    padding: 1rem 1.25rem;
     text-align: center;
   }
 
   .btn-call {
-    font-size: 1.1rem;
+    font-size: 1.0625rem;
     font-weight: 700;
   }
 }
